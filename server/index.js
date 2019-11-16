@@ -12,8 +12,14 @@ passport.use(
             clientSecret: keys.googleClientSecret,
             callbackURL: '/auth/google/callback'
         },
-        (accessToken) => {
-            console.log(accessToken)
+        (accessToken, refreshToken, profile, done) => {
+            console.log('access token', accessToken)
+            console.log('refresh token', refreshToken)
+            console.log('profile:', profile)
+            // token that appears when user logs in
+            // 'ya29.Il-xB6pjy050Furqo4-sOVTbXnTOxCIGmu3g48W9TYnyb08O
+            // w-HC8mF6PG1F4BGr4HjJfRCFcywllxLmf9VXYR6wTxTeAzMMGLr8b
+            // TWjfksiD4yFlGoHMWQcmF7n8bXSKA'
         }
     )
 );
